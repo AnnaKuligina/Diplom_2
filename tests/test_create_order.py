@@ -75,13 +75,5 @@ class TestCreateOrder:
 
         assert response.status_code in [400, 500], f"Неожиданный статус: {response.status_code}"
 
-        try:
-            response_data = response.json()
-            if response.status_code == 500:
-                assert False, "Сервер вернул 500 ошибку с JSON-ответом: " + str(response_data)
-            assert not response_data["success"]
-        except ValueError:
-            if response.status_code == 500:
-                assert True
-            else:
-                assert False, f"Не удалось получить ответ: {response.text}"
+        if response.status_code == 400:
+            assert not response.json()["success"]

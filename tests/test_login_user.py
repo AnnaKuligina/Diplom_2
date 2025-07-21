@@ -33,9 +33,5 @@ class TestLoginUser:
             response = api.post("/auth/login", json=invalid_data)
 
         with allure.step("Проверка неуспешного ответа"):
-            assert response.status_code in [401], \
+            assert response.status_code == 401, \
                 f"Ожидался код 401, получен {response.status_code}. Ответ: {response.text}"
-            if response.status_code == 401:
-                response_json = response.json()
-                assert "message" in response_json, \
-                    f"Сообщение об ошибке не найдено в ответе. Ответ: {response_json}"

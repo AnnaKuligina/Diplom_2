@@ -1,0 +1,1 @@
+{"uuid": "13d237c0-ea5f-447c-a871-e38f760a3644", "children": ["0d847ae9-5e4e-4614-a8d4-7340e10f0d01"], "befores": [{"name": "user_data", "status": "passed", "steps": [{"name": "Генерация данных пользователя", "status": "passed", "start": 1752837231085, "stop": 1752837231085}], "start": 1752837231085, "stop": 1752837231085}], "start": 1752837231085, "stop": 1752837231458}
