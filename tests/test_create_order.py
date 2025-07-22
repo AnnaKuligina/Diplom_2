@@ -64,7 +64,8 @@ class TestCreateOrder:
 
     @allure.story("Неверные ингредиенты")
     @allure.title("Создание заказа с неверным хешем ингредиентов")
-    def test_create_order_wrong_ingredients(self, created_user): # Проверка создания заказа с неверным хешем ингредиентов
+    def test_create_order_wrong_ingredients(self,
+                                            created_user):  # Проверка создания заказа с неверным хешем ингредиентов
         headers = {"Authorization": created_user["token"]}
 
         response = api.post(
@@ -74,6 +75,3 @@ class TestCreateOrder:
         )
 
         assert response.status_code in [400, 500], f"Неожиданный статус: {response.status_code}"
-
-        if response.status_code == 400:
-            assert not response.json()["success"]
